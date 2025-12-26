@@ -27,6 +27,12 @@ LeSerializedObjectSnippet class >> empty [
 	^ self new
 ]
 
+{ #category : 'initialization' }
+LeSerializedObjectSnippet class >> initialize [
+	super initialize.
+	self leJsonV4MappingFor: LeJsonV4 uniqueInstance newWriter
+]
+
 { #category : 'mapping - model' }
 LeSerializedObjectSnippet class >> leJsonV3AttributeMapping [
 	^ super leJsonV3AttributeMapping
