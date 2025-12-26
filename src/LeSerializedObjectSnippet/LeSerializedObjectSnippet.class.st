@@ -27,6 +27,17 @@ LeSerializedObjectSnippet class >> empty [
 	^ self new
 ]
 
+{ #category : 'lepiter-store' }
+LeSerializedObjectSnippet class >> leFromJsonV4Dictionary: aDictionary [
+	"Create a new instance of the receiver from the supplied dictionary.
+	Set reference to snippet from object if object has said method."
+	| aLeModel |
+
+	aLeModel := super leFromJsonV4Dictionary: aDictionary.
+	[aLeModel object snippet: aLeModel] on: MessageNotUnderstood do: [ ].
+	^ aLeModel
+]
+
 { #category : 'mapping - model' }
 LeSerializedObjectSnippet class >> leJsonV3AttributeMapping [
 	^ super leJsonV3AttributeMapping
