@@ -3,7 +3,6 @@ Class {
 	#superclass : 'LeSnippetElement',
 	#instVars : [
 		'objectInspector',
-		'toolsElement',
 		'objectSnippetElement'
 	],
 	#category : 'LeSerializedObjectSnippet-! Views',
