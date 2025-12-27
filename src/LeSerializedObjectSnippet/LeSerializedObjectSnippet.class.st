@@ -90,7 +90,7 @@ LeSerializedObjectSnippet >> json [
 LeSerializedObjectSnippet >> json: aString [
 	object := LeJsonV4 default deserialize: aString readStream.
 	[ object snippet: self] on: MessageNotUnderstood do: [ ].
-	self announceContentChangedBy: self
+	self serialize
 ]
 
 { #category : 'accessing' }
@@ -101,8 +101,8 @@ LeSerializedObjectSnippet >> object [
 { #category : 'accessing' }
 LeSerializedObjectSnippet >> object: anObject [
 	object := anObject.
-	[ object snippet: self] on: MessageNotUnderstood do: [ ].
-	self announceContentChangedBy: self
+	[ object snippet: self ] on: MessageNotUnderstood do: [  ].
+	self serialize
 ]
 
 { #category : 'printing' }
@@ -111,6 +111,11 @@ LeSerializedObjectSnippet >> printOn: aStream [
 	aStream nextPut: $(.
 	self object printOn: aStream.
 	aStream nextPut: $)
+]
+
+{ #category : 'serialization' }
+LeSerializedObjectSnippet >> serialize [
+	self announceContentChangedBy: self
 ]
 
 { #category : 'printing' }

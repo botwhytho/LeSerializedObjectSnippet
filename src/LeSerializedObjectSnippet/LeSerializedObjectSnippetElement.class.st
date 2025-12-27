@@ -58,7 +58,7 @@ LeSerializedObjectSnippetElement >> snippetToolbar [
 			aptitude: BrGlamorousButtonWithIconAptitude;
 			icon: BrGlamorousVectorIcons accept;
 			label: 'Save Changes';
-			action: [ :aButton | self snippet announceContentChangedBy: self snippet ].
+			action: [ :aButton | self snippet serialize ].
 
 	inspectObject := BrButton new
 			beSmallSize;
