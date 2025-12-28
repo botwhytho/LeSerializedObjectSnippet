@@ -10,6 +10,30 @@ Class {
 	#tag : '! Views'
 }
 
+{ #category : 'initialization' }
+LeSerializedObjectSnippetElement >> initializeTextEditorShortcuts [
+	"Initialise the receiver's text editor shortcuts"
+	
+	objectSnippetElement
+		"Lose focus LeSnippet"
+		addEditorShortcut: (BrEditorShortcut loseFocus combination: (self keyboardShortcut: #LoseFocus));
+		"Indent LeSnippet"
+		addEditorShortcut: (LeSnippetIndentSnippetShortcut new combination: (self keyboardShortcut: #IndentSnippet));
+		"Unindent LeSnippet"
+		addEditorShortcut: (LeSnippetUnindentSnippetShortcut new combination: (self keyboardShortcut: #UnindentSnippet));
+		"Alt-Shift-Up -> Move snippet up"
+		addEditorShortcut: (LeSnippetMoveSnippetUpShortcut new combination: (self keyboardShortcut: #MoveSnippetUp));
+		"Alt-Shift-Down -> Move snippet down"
+		addEditorShortcut: (LeSnippetMoveSnippetDownShortcut new combination: (self keyboardShortcut: #MoveSnippetDown)).
+]
+
+{ #category : 'accessing' }
+LeSerializedObjectSnippetElement >> keyboardShortcut: aSymbol [
+	"Answer the named keyboard shortcut"
+
+	^ self class keyboardShortcut: aSymbol
+]
+
 { #category : 'api - snippet view model' }
 LeSerializedObjectSnippetElement >> onSnippetViewModelChanged [
 	self
@@ -31,7 +55,9 @@ LeSerializedObjectSnippetElement >> snippetContent [
 							left: 2
 							bottom: 0
 							right: 0);
-					beReadOnlyWithSelection ]
+					beReadOnlyWithSelection.
+			self initializeTextEditorShortcuts.
+			objectSnippetElement ]
 ]
 
 { #category : 'api - view' }
