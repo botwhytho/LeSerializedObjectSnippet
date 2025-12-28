@@ -115,6 +115,7 @@ LeSerializedObjectSnippet >> printOn: aStream [
 
 { #category : 'serialization' }
 LeSerializedObjectSnippet >> serialize [
+	self updateEditTimeAndEmail.
 	self announceContentChangedBy: self
 ]
 
