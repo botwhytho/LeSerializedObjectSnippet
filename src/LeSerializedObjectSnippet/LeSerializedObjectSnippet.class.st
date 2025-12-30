@@ -35,18 +35,6 @@ LeSerializedObjectSnippet class >> initialize [
 ]
 
 { #category : 'mapping - model' }
-LeSerializedObjectSnippet class >> leJsonV3AttributeMapping [
-	^ super leJsonV3AttributeMapping
-		add: (#object -> #object);
-		yourself 
-]
-
-{ #category : 'lepiter-store' }
-LeSerializedObjectSnippet class >> leJsonV3Name [
-	^ #serializedObjectSnippet
-]
-
-{ #category : 'mapping - model' }
 LeSerializedObjectSnippet class >> leJsonV4AttributeMapping [
 	^ super leJsonV4AttributeMapping
 		add: (#object -> #object);
