@@ -29,8 +29,6 @@ LeAbstractSerializedObjectSnippet class >> initialize [
 	"Subclasses need to regsiter themselves with readers/writers for correct functionality.
 	Use the commented out lines below to achieve that."
 
-	self subclassResponsibility	
-
 	"self leJsonV4MappingFor: LeJsonV4 uniqueInstance newReader.
 	self leJsonV4MappingFor: LeJsonV4 uniqueInstance newWriter"
 ]
@@ -49,7 +47,9 @@ LeAbstractSerializedObjectSnippet class >> leJsonV4AttributeMapping [
 
 { #category : 'lepiter-store' }
 LeAbstractSerializedObjectSnippet class >> leJsonV4Name [
-	self subclassResponsibility
+	self = LeAbstractSerializedObjectSnippet
+		ifTrue: [ ^ nil ]
+		ifFalse: [ self subclassResponsibility ]
 ]
 
 { #category : 'converting' }
