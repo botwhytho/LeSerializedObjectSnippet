@@ -1,8 +1,7 @@
 Trait {
 	#name : 'TLeSerializedObject',
 	#instVars : [
-		'snippet',
-		''
+		'snippet'
 	],
 	#category : 'LeSerializedObjectSnippet',
 	#package : 'LeSerializedObjectSnippet'
