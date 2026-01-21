@@ -48,7 +48,7 @@ LeSerializedObjectSnippetElement >> snippetContent [
 	<return: #BlElement>
 	^ objectSnippetElement
 		ifNil: [ objectSnippetElement := BrEditor new
-					aptitude: BrGlamorousRegularEditorAptitude + BrGlamorousEditorSearchTextAptitude;
+					aptitude: BrGlamorousCodeEditorAptitude + BrGlamorousEditorSearchTextAptitude;
 					styler: JSONParser gtStyler;
 					padding: (BlInsets
 							top: 0
